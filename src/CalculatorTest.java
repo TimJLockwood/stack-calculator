@@ -78,4 +78,29 @@ public class CalculatorTest {
         calc.total();
         assertEquals("[21].", calc.toString());
     }
+    @Test
+    public void testSaveVar() {
+    	calc.loadConstant(4);
+    	calc.loadConstant(2);
+    	calc.saveVar('x');;
+    	assertEquals("[4].",calc.toString());	
+    }
+    
+    @Test
+    public void testGetAllVars() {
+    	calc.loadConstant(4);
+    	calc.loadConstant(2);
+    	calc.saveVar('x');
+    	calc.saveVar('y');
+    	assertEquals("x=2, y=4", calc.getAllVars());
+    }
+    
+    @Test
+    public void testLoadVar() {
+    	calc.loadConstant(4);
+    	calc.loadConstant(2);
+    	calc.saveVar('x');
+    	calc.loadVar('x');
+    	assertEquals("[4 2].",calc.toString());	
+    }  
 }
